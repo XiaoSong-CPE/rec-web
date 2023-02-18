@@ -4,14 +4,18 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node beforebuild.js && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.45"
+    "naive-ui": "^2.34.3",
+    "vue": "^3.2.45",
+    "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "vite": "^4.0.0"
+    "unplugin-vue-components": "^0.24.0",
+    "vite": "^4.0.0",
+    "xlsx": "^0.18.5"
   }
 }
