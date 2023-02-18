@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue';
 import json from './data.json';
-import { darkTheme } from 'naive-ui';
-// import { t } from 'vue-i18n';
-console.log(json);
+import { darkTheme, useOsTheme } from 'naive-ui';
+
+let osTheme = (useOsTheme().value === 'dark') ? darkTheme : null;
 var a = ref(json);
-var theme = ref(null);
+var theme = ref(osTheme);
 
 function switchTheme() {
   (theme.value === null) ? theme.value = darkTheme : theme.value = null;
@@ -24,17 +24,18 @@ function switchLang(lang) {
   <n-config-provider :theme="theme">
     <n-layout>
       <n-layout-header>
-        <n-space justify="space-between" align="end" style="padding: 16px;">
+        <n-space justify="space-between" align="end" style="padding: 16px 32px;">
           <n-space>
             <n-gradient-text type="success" :size="24">
-              CNection 资源推荐
+              {{ $t('title') }}
             </n-gradient-text>
           </n-space>
           <n-space>
             <n-button quaternary @click="($i18n.locale.slice(0, 2) === 'zh') ? $i18n.locale = 'en' : $i18n.locale = 'zh'">
               {{ ($i18n.locale.slice(0, 2) === 'zh') ? 'English' : '简体中文' }}
             </n-button>
-            <n-button quaternary @click="switchTheme()">{{ (theme === null) ? $t('themeDark') : $t('themeLight') }}</n-button>
+            <n-button quaternary @click="switchTheme()">{{ (theme === null) ? $t('themeDark') : $t('themeLight')
+            }}</n-button>
           </n-space>
         </n-space>
       </n-layout-header>
@@ -43,7 +44,8 @@ function switchLang(lang) {
           <template #header>{{ $t(item['网站名称'] + '.title') }}</template>
           {{ $t(item['网站名称'] + '.desc') }}
           <template #footer>
-            <n-button style="float: right;" quaternary type="primary" @click="openWeb(item['网址'])">{{$t('open')}}</n-button>
+            <n-button style="float: right;" quaternary type="primary" @click="openWeb(item['网址'])">{{ $t('open')
+            }}</n-button>
           </template>
         </n-card>
       </n-layout-content>
