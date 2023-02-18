@@ -27,7 +27,7 @@ function switchLang(lang) {
         <n-space justify="space-between" align="end" style="padding: 16px;">
           <n-space>
             <n-gradient-text type="success" :size="24">
-              CNection 资源推荐 {{ $i18n.locale }}
+              CNection 资源推荐
             </n-gradient-text>
           </n-space>
           <n-space>
