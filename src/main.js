@@ -35,4 +35,4 @@ const i18n = createI18n({
   messages,
 });
 
-createApp(App).use(i18n).mount('#app');
+createApp(App).use(i18n).mount('body');
