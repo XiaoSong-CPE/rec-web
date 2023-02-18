@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "node beforebuild.js && vite build && node afterbuild.js",
+    "build": "node beforebuild.js && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
